@@ -106,13 +106,19 @@ export function MultimodalInput({
   useEffect(() => {
     if (textareaRef.current) {
       const domValue = textareaRef.current.value;
+<<<<<<< HEAD
       // Prefer DOM value over localStorage to handle hydration
+=======
+>>>>>>> ebcacad0cb8935af78f00c1e49b35ca294f14fe4
       const finalValue = domValue || localStorageInput || "";
       setInput(finalValue);
       adjustHeight();
     }
+<<<<<<< HEAD
     // Only run once after hydration
     // eslint-disable-next-line react-hooks/exhaustive-deps
+=======
+>>>>>>> ebcacad0cb8935af78f00c1e49b35ca294f14fe4
   }, []);
 
   useEffect(() => {
@@ -124,6 +130,7 @@ export function MultimodalInput({
     adjustHeight();
   };
 
+<<<<<<< HEAD
   // const fileInputRef = useRef<HTMLInputElement>(null);
   // const [uploadQueue, setUploadQueue] = useState<Array<string>>([]);
 
@@ -131,6 +138,11 @@ export function MultimodalInput({
     handleSubmit();
 
     // setAttachments([]);
+=======
+  const submitForm = useCallback(() => {
+    handleSubmit();
+
+>>>>>>> ebcacad0cb8935af78f00c1e49b35ca294f14fe4
     setLocalStorageInput("");
 
     if (width && width > 768) {
@@ -138,6 +150,7 @@ export function MultimodalInput({
     }
   }, [handleSubmit, setLocalStorageInput, width]);
 
+<<<<<<< HEAD
   // const uploadFile = async (file: File) => {
   //   const formData = new FormData();
   //   formData.append("file", file);
@@ -192,6 +205,8 @@ export function MultimodalInput({
   //   [setAttachments]
   // );
 
+=======
+>>>>>>> ebcacad0cb8935af78f00c1e49b35ca294f14fe4
   return (
     <div className="relative w-full flex flex-col gap-4">
       {messages.length === 0 && (

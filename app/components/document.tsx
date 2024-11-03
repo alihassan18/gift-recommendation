@@ -1,6 +1,9 @@
+<<<<<<< HEAD
 import { SetStateAction } from "react";
 
 // import { UICanvas } from './canvas';
+=======
+>>>>>>> ebcacad0cb8935af78f00c1e49b35ca294f14fe4
 import { FileIcon, LoaderIcon, MessageIcon, PencilEditIcon } from "./icons";
 
 const getActionText = (type: "create" | "update" | "request-suggestions") => {
@@ -19,6 +22,7 @@ const getActionText = (type: "create" | "update" | "request-suggestions") => {
 interface DocumentToolResultProps {
   type: "create" | "update" | "request-suggestions";
   result: any;
+<<<<<<< HEAD
   // canvas: UICanvas;
   // setCanvas: (value: SetStateAction<UICanvas>) => void;
 }
@@ -29,6 +33,11 @@ export function DocumentToolResult({
 }: // canvas,
 // setCanvas,
 DocumentToolResultProps) {
+=======
+}
+
+export function DocumentToolResult({ type, result }: DocumentToolResultProps) {
+>>>>>>> ebcacad0cb8935af78f00c1e49b35ca294f14fe4
   return (
     <div
       className="cursor-pointer border py-2 px-3 rounded-xl w-fit flex flex-row gap-3 items-start"
@@ -41,6 +50,7 @@ DocumentToolResultProps) {
           width: rect.width,
           height: rect.height,
         };
+<<<<<<< HEAD
 
         // setCanvas({
         //   documentId: result.id,
@@ -50,6 +60,8 @@ DocumentToolResultProps) {
         //   status: 'idle',
         //   boundingBox,
         // });
+=======
+>>>>>>> ebcacad0cb8935af78f00c1e49b35ca294f14fe4
       }}
     >
       <div className="text-muted-foreground mt-1">

@@ -1,4 +1,5 @@
 "use client";
+<<<<<<< HEAD
 
 import { Attachment, ToolInvocation } from "ai";
 import cx from "classnames";
@@ -24,6 +25,16 @@ export const Message = ({
   //   React.isValidElement(message.gui) && message.gui.props.children?.length > 0
   //     ? message.gui
   //     : null;
+=======
+import cx from "classnames";
+import { motion } from "framer-motion";
+import { Sparkles } from "lucide-react";
+
+import { ClientMessage } from "../actions";
+
+export const Message = ({ message }: { message: ClientMessage }) => {
+  const role = message.status == "user.message.created" ? "user" : "assistant";
+>>>>>>> ebcacad0cb8935af78f00c1e49b35ca294f14fe4
 
   return (
     <motion.div
@@ -51,6 +62,7 @@ export const Message = ({
           <div className="flex flex-row justify-between">
             <div className="text-sm text-zinc-500">{message.status}</div>
           </div>
+<<<<<<< HEAD
           {/* {message?.gui ? (
             <div className="flex flex-col gap-4">{message.gui}</div>
           ) : (
@@ -124,6 +136,11 @@ export const Message = ({
               })}
             </div>
           )} */}
+=======
+
+          {message.text}
+          {message.gui}
+>>>>>>> ebcacad0cb8935af78f00c1e49b35ca294f14fe4
         </div>
       </div>
     </motion.div>
