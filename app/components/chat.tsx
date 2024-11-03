@@ -2,7 +2,6 @@
 
 import React, { useState, useEffect, useRef } from "react";
 import styles from "./chat.module.css";
-<<<<<<< HEAD
 import { AssistantStream } from "openai/lib/AssistantStream";
 import Markdown from "react-markdown";
 // @ts-expect-error - no types for this yet
@@ -25,16 +24,6 @@ import { Message as PreviewMessageNew } from "./new-message";
 //   role: "user" | "assistant" | "code";
 //   text: string;
 // };
-=======
-import Markdown from "react-markdown";
-import { RequiredActionFunctionToolCall } from "openai/resources/beta/threads/runs/runs";
-import { Overview } from "./overview";
-import { MultimodalInput } from "./multimodal-input";
-import { useScrollToBottom } from "./use-scroll-to-bottom";
-import { Message as PreviewMessage } from "./message";
-import { ClientMessage } from "../actions";
-import { useActions } from "ai/rsc";
->>>>>>> ebcacad0cb8935af78f00c1e49b35ca294f14fe4
 
 const UserMessage = ({ text }: { text: string }) => {
   return <div className={styles.userMessage}>{text}</div>;
@@ -61,7 +50,6 @@ const CodeMessage = ({ text }: { text: string }) => {
   );
 };
 
-<<<<<<< HEAD
 // const Message = ({ role, text }: MessageProps) => {
 //   switch (role) {
 //     case "user":
@@ -75,8 +63,6 @@ const CodeMessage = ({ text }: { text: string }) => {
 //   }
 // };
 
-=======
->>>>>>> ebcacad0cb8935af78f00c1e49b35ca294f14fe4
 type ChatProps = {
   functionCallHandler?: (
     toolCall: RequiredActionFunctionToolCall
@@ -86,13 +72,10 @@ type ChatProps = {
 const Chat =
   ({}: // functionCallHandler = () => Promise.resolve(""), // default to return empty string
   ChatProps) => {
-<<<<<<< HEAD
     // const [input, setInput] = useState("");
     // const [messages, setMessages] = useState([]);
     // const [inputDisabled, setInputDisabled] = useState(false);
     // const [threadId, setThreadId] = useState("");
-=======
->>>>>>> ebcacad0cb8935af78f00c1e49b35ca294f14fe4
     const [messagesContainerRef, messagesEndRef] =
       useScrollToBottom<HTMLDivElement>();
 
@@ -117,7 +100,6 @@ const Chat =
       setInput("");
     };
 
-<<<<<<< HEAD
     // const {
     //   status,
     //   submitMessage,
@@ -141,8 +123,6 @@ const Chat =
 
     // automatically scroll to bottom of chat
     // const messagesEndRef = useRef<HTMLDivElement | null>(null);
-=======
->>>>>>> ebcacad0cb8935af78f00c1e49b35ca294f14fe4
     const scrollToBottom = () => {
       messagesEndRef.current?.scrollIntoView({ behavior: "smooth" });
     };
@@ -151,7 +131,6 @@ const Chat =
     }, [messages]);
     console.log(messages, "messages");
 
-<<<<<<< HEAD
     // create a new threadID when chat component created
     // useEffect(() => {
     //   const createThread = async () => {
@@ -307,8 +286,6 @@ const Chat =
     //   setMessages((prevMessages) => [...prevMessages, { role, text }]);
     // };
 
-=======
->>>>>>> ebcacad0cb8935af78f00c1e49b35ca294f14fe4
     const appendMessage = async (input) => {
       setMessages((currentMessages) => [
         ...currentMessages,
@@ -325,7 +302,6 @@ const Chat =
       setInput("");
     };
 
-<<<<<<< HEAD
     // const annotateLastMessage = (annotations) => {
     //   setMessages((prevMessages) => {
     //     const lastMessage = prevMessages[prevMessages.length - 1];
@@ -349,8 +325,6 @@ const Chat =
     //   // adjustHeight();
     // };
 
-=======
->>>>>>> ebcacad0cb8935af78f00c1e49b35ca294f14fe4
     return (
       <div className="flex flex-col min-w-0 h-dvh bg-background">
         <div
@@ -398,7 +372,6 @@ const Chat =
             append={appendMessage}
           />
         </form>
-<<<<<<< HEAD
         {/* Input form */}
         {/* <MultimodalInput /> */}
         {/* <form className="flex mx-auto px-4 bg-background pb-4 md:pb-6 gap-2 w-full md:max-w-3xl">
@@ -451,8 +424,6 @@ const Chat =
           </Button>
         )}
       </form> */}
-=======
->>>>>>> ebcacad0cb8935af78f00c1e49b35ca294f14fe4
       </div>
     );
   };
