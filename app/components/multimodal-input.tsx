@@ -106,13 +106,10 @@ export function MultimodalInput({
   useEffect(() => {
     if (textareaRef.current) {
       const domValue = textareaRef.current.value;
-      // Prefer DOM value over localStorage to handle hydration
       const finalValue = domValue || localStorageInput || "";
       setInput(finalValue);
       adjustHeight();
     }
-    // Only run once after hydration
-    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   useEffect(() => {
@@ -124,73 +121,15 @@ export function MultimodalInput({
     adjustHeight();
   };
 
-  // const fileInputRef = useRef<HTMLInputElement>(null);
-  // const [uploadQueue, setUploadQueue] = useState<Array<string>>([]);
-
   const submitForm = useCallback(() => {
     handleSubmit();
 
-    // setAttachments([]);
     setLocalStorageInput("");
 
     if (width && width > 768) {
       textareaRef.current?.focus();
     }
   }, [handleSubmit, setLocalStorageInput, width]);
-
-  // const uploadFile = async (file: File) => {
-  //   const formData = new FormData();
-  //   formData.append("file", file);
-
-  //   try {
-  //     const response = await fetch(`/api/files/upload`, {
-  //       method: "POST",
-  //       body: formData,
-  //     });
-
-  //     if (response.ok) {
-  //       const data = await response.json();
-  //       const { url, pathname, contentType } = data;
-
-  //       return {
-  //         url,
-  //         name: pathname,
-  //         contentType: contentType,
-  //       };
-  //     } else {
-  //       const { error } = await response.json();
-  //       toast.error(error);
-  //     }
-  //   } catch (error) {
-  //     toast.error("Failed to upload file, please try again!");
-  //   }
-  // };
-
-  // const handleFileChange = useCallback(
-  //   async (event: ChangeEvent<HTMLInputElement>) => {
-  //     const files = Array.from(event.target.files || []);
-
-  //     setUploadQueue(files.map((file) => file.name));
-
-  //     try {
-  //       const uploadPromises = files.map((file) => uploadFile(file));
-  //       const uploadedAttachments = await Promise.all(uploadPromises);
-  //       const successfullyUploadedAttachments = uploadedAttachments.filter(
-  //         (attachment) => attachment !== undefined
-  //       );
-
-  //       setAttachments((currentAttachments) => [
-  //         ...currentAttachments,
-  //         ...successfullyUploadedAttachments,
-  //       ]);
-  //     } catch (error) {
-  //       console.error("Error uploading files!", error);
-  //     } finally {
-  //       setUploadQueue([]);
-  //     }
-  //   },
-  //   [setAttachments]
-  // );
 
   return (
     <div className="relative w-full flex flex-col gap-4">
